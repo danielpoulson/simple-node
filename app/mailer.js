@@ -7,8 +7,7 @@ exports.sendMail = function(toEmail, emailType, emailActivity) {
   // This is your API key that you retrieve from www.mailgun.com/cp (free up to 10K monthly emails)
   var auth = {
     auth: {
-      api_key: 'key-d4288ca098eebff7793dfbe2aa943a7f',
-      domain: 'sandbox5c555bb04a2c41e6b4b4e733d1d0fe50.mailgun.org'
+
     }
   }
 
