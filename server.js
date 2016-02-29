@@ -5,7 +5,7 @@ var port  	 = process.env.PORT || 8080; 				// set the port
 var morgan   = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var fs = require('fs');
+
 
 // configuration ===============================================================
 
@@ -23,13 +23,11 @@ require('./app/routes.js')(app);
 //nodemailer
 // toEmail, emailSubject, emailHtml
 var toEmail = "danielpoulson@icloud.com";
-var emailSubject = "This is a passed in value for the email";
-var emailHtml = '';
-var mailer = require('./app/mailer.js');
+var emailType = "Change Control - Task";
+var emailActivity = "CC16009 - Implement this email communication application Due:30/03/2016";
 
-fs.readFile('./mail.html', 'utf8', function(err, html){
-  mailer.sendMail(toEmail, emailSubject, html);
-});
+
+mailer.sendMail(toEmail, emailType, emailActivity);
 
 
 // listen (start app with node server.js) ======================================
