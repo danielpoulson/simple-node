@@ -5,6 +5,7 @@ var port  	 = process.env.PORT || 8080; 				// set the port
 var morgan   = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var mailer = require('./app/mailer.js');
 
 
 // configuration ===============================================================
@@ -22,9 +23,9 @@ require('./app/routes.js')(app);
 
 //nodemailer
 // toEmail, emailSubject, emailHtml
-var toEmail = "danielpoulson@icloud.com";
-var emailType = "Change Control - Task";
-var emailActivity = "CC16009 - Implement this email communication application Due:30/03/2016";
+var toEmail = "daniel.poulson@fmc.com";
+var emailType = "Deviation - Task";
+var emailActivity = "DV160009 - Implement this email communication application Due:30/03/2016";
 
 
 mailer.sendMail(toEmail, emailType, emailActivity);

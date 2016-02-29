@@ -1,6 +1,5 @@
 var nodemailer = require('nodemailer');
 var mg = require('nodemailer-mailgun-transport');
-var mailer = require('./app/mailer.js');
 var fs = require('fs');
 
 exports.sendMail = function(toEmail, emailType, emailActivity) {
@@ -17,12 +16,14 @@ exports.sendMail = function(toEmail, emailType, emailActivity) {
 
   fs.readFile('./mail.html', 'utf8', function(err, html){
     // mailer.sendMail(toEmail, emailSubject, html);
+    var html = `<html><body STYLE="font-size: 12pt/14pt; font-family:sans-serif">
+      <h3>You have been assigned this ${emailType}</h3></br> ${emailActivity} </br> ${html} </body></html>`;
     nodemailerMailgun.sendMail({
-        from: 'poulsondaniel@gmail.com',
+        from: 'daniel.poulson@fmc.com',
         to: toEmail, // An array if you have multiple recipients.
         subject: emailSubject,
         //You can use "html:" to send HTML email content. It's magic!
-        html,
+        html: html,
       },
       function (err, info) {
       if (err) {
