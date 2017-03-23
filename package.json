@@ -1,15 +1,22 @@
 {
-  "name": "simpleNode",
-  "version": "0.0.0",
-  "description": "Simple Node application.",
-  "main": "server.js",
-  "author": "Daniel",
+  "name": "SimpleNode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel dev:*",
+    "dev:flow": "babel --watch=./server --out-dir=./build",
+    "dev:nodemon": "nodemon build/server.js"
+  },
   "dependencies": {
-    "body-parser": "~1.4.3",
-    "express": "~4.6.1",
-    "method-override": "~2.1.1",
-    "mongoose": "~3.8.13",
-    "morgan": "~1.1.1",
-    "nodemailer": "^2.2.1"
-  }
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "flow-bin": "^0.42.0"
+  },
+  "repository": {
+    "url": "https://github.com/danielpoulson/SimpleNode.git",
+    "type": "git"
+  },
+  "author": "danielpoulson <danielpoulson@hotmail.com.au>",
+  "license": "MIT"
 }
