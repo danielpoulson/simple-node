@@ -3,18 +3,38 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel dev:*",
-    "dev:flow": "babel --watch=./server --out-dir=./build",
-    "dev:nodemon": "nodemon build/server.js"
+    "build": "babel src --out-dir dist",
+    "dev": "nodemon --exec yarn restart",
+    "restart": "rimraf dist && yarn build && yarn start",
+    "start": "node dist/index.js"
   },
-  "dependencies": {
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "ejs": "^2.5.6",
-    "express": "^4.15.2",
-    "flow-bin": "^0.42.0"
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^8.2.1",
+    "babel-jest": "^23.4.2",
+    "eslint": "^4.15.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "nodemon": "^1.18.3",
+    "prettier": "^1.15.2",
+    "rimraf": "^2.6.2"
   },
   "repository": {
-    "url": "https://github.com/danielpoulson/SimpleNode.git",
+    "url": "https://github.com/danielpoulson/simple-node.git",
     "type": "git"
   },
   "author": "danielpoulson <danielpoulson@hotmail.com.au>",
