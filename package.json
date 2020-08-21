@@ -15,6 +15,7 @@
     "url": "https://github.com/danielpoulson/simple-node.git",
     "type": "git"
   },
+  "type": "module",
   "author": "danielpoulson <danielpoulson@hotmail.com.au>",
   "license": "MIT"
 }
